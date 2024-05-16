@@ -1,0 +1,42 @@
+<div class="table-responsive">
+
+  <table class="table">
+    <thead align="center">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido paterno</th>
+        <th scope="col">Apellido materno</th>
+        <th scope="col">Calificación</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <tbody align="center">
+      {{#each grupoAlumnos}}
+        <tr>
+          <th scope="row"></th>
+          <td>{{nombre}}</td>
+          <td>{{apellido_paterno}}</td>
+          <td>{{apellido_materno}}</td>
+          <td>{{valor}}</td>
+          <td>{{fecha_calificacion}}</td>
+          <td>
+            <button
+              class="btn btn-primary addNote swal2-styled swal2-confirm"
+              data-uuid="{{alumno_id}}"
+              data-name="{{nombre}}"
+              data-lastname="{{apellido_paterno}}"
+              data-lastnamemattern="{{apellido_materno}}"
+              data-uuidCalificacion="{{calificacion_id}}"
+              data-uuidg="{{grupo_id}}"
+            >
+              Calificar
+            </button>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+</div>

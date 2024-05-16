@@ -1,0 +1,50 @@
+<div
+  style="width: 250px;"
+  class="offcanvas offcanvas-start"
+  data-bs-scroll="true"
+  tabindex="-1"
+  id="offcanvasWithBothOptions"
+  aria-labelledby="offcanvasWithBothOptionsLabel"
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Barra de
+      opciones</h5>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="offcanvas-body text-center">
+    <div class="" style="">
+      <img
+        src="https://materializecss.com/images/office.jpg"
+        class="card-img-top w-100"
+        alt="..."
+      />
+      <div class="card-body">
+        <div
+          style="display: flex; justify-content: start; align-items: center; gap: 21px;"
+        >
+          <img src="/svg/avatar.svg" alt="Avatar" title="Avatar" />
+          <h5 class="card-title">Luis Alfonso </h5>
+        </div>
+
+      </div>
+    </div>
+    <div class="mark-as-read">
+      <a href="/">
+        INICIO
+      </a>
+    </div>
+    {{#each grupos}}
+      <div class="mark-as-read">
+        <a href="/grupos/sectionABS/{{grupo_id}}/SCD" name="{{grupo_id}}">
+            GRUPO
+            {{nombre}}
+        </a>
+      </div>
+    {{/each}}
+  </div>
+</div>
