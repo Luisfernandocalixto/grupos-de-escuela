@@ -4,7 +4,7 @@
 
 body {
   background: #EFF0F3 !important;
-  
+
 }
 
 header {
@@ -18,7 +18,7 @@ header {
   top: 0;
   position: fixed;
   width: 100%;
-  background: #EFF0F3 !important; 
+  background: #EFF0F3 !important;
 }
 
 .offcanvas {
@@ -114,10 +114,15 @@ header {
 }
 
 .mark-as-read {
+  display: flex;
   margin-top: 0.5rem;
   background-color: rgba(249, 250, 251, 1);
   color: rgba(107, 114, 128, 1);
   transition: all .15s ease;
+
+  & a {
+    width: 100%;
+  }
 }
 
 .mark-as-read:hover {
