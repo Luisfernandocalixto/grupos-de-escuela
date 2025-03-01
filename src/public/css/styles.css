@@ -128,3 +128,13 @@ header {
 .mark-as-read:hover {
   background-color: rgb(230, 231, 233);
 }
+
+.container_top {
+  margin-top: 70px;
+}
+
+.space_top {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
