@@ -13,6 +13,8 @@ const app = express()
 
 // setting
 app.set('port', process.env.PORT || 3000);
+app.disable('x-powered-by');
+
 // detail order /src
 app.set('views', path.join(__dirname, '../src/views/'));
 
