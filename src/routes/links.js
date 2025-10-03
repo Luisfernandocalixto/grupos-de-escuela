@@ -5,11 +5,10 @@ const { LinkController } = require("../controllers/LinkController.js");
 
 router.get("/", LinkController.index);
 
-router.get("/grupos/:sectionABS/:grupo_id/:SCD", LinkController.getGroup);
+router.get("/group/:id", LinkController.getGroup);
 
-router.post("/grupos/:sectionABS/:grupo_id/:SCD", LinkController.postGroup);
+router.post("/group", LinkController.postGroup);
 
-router.get("/informacion/:uuidGroup", LinkController.getInformation);
 
 
 

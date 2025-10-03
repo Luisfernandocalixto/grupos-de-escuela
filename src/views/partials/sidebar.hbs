@@ -1,6 +1,5 @@
 <div
-  style="width: 250px;"
-  class="offcanvas offcanvas-start"
+  class="offcanvas offcanvas-start w-250"
   data-bs-scroll="true"
   tabindex="-1"
   id="offcanvasWithBothOptions"
@@ -17,34 +16,34 @@
     ></button>
   </div>
   <div class="offcanvas-body text-center">
-    <div class="" style="">
+    <div class="" >
       <img
-        src="https://materializecss.com/images/office.jpg"
+        src="/image/office.webp"
         class="card-img-top w-100"
         alt="..."
       />
       <div class="card-body">
         <div
-          style="display: flex; justify-content: start; align-items: center; gap: 21px;"
+        class="d-flex justify-content-start align-items-center gap-4"
         >
           <img src="/svg/avatar.svg" alt="Avatar" title="Avatar" />
-          <h5 class="card-title">Luis Alfonso </h5>
+          <span class="text-wrap fs-6">{{infoTeacher.name}} {{infoTeacher.fatherLastName}} {{infoTeacher.motherLastName}}</span>
         </div>
 
       </div>
     </div>
-    <div class="mark-as-read">
+    <div class="mark-as-read text-uppercase">
       <a href="/">
-        INICIO
+        inicio
       </a>
     </div>
 
     <div class="sectionGroups">
-    {{#each grupos}}
-      <div class="mark-as-read">
-        <a href="/grupos/sectionABS/{{grupo_id}}/SCD" name="{{grupo_id}}">
-            GRUPO
-            {{nombre}}
+    {{#each groups}}
+      <div class="mark-as-read text-uppercase">
+        <a href="/group/{{id}}">
+            grupo
+            {{name}}
         </a>
       </div>
     {{/each}}

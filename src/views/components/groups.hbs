@@ -1,12 +1,14 @@
 {{>sidebar}}
 
-
+<link rel="stylesheet" href="/css/dark.css">
 <section id="tabla-alumnos" class="container container_top" >
 
     <div class="table-responsive">
         <button class="swal2-styled swal2-confirm">
-           Alumnos: {{grupoAlumnos.length}}
+           Alumnos: {{groupStudents.length}}
         </button>
+        <div class="contentTable">
+
         <table class="table">
             <thead align="center">
                 <tr>
@@ -21,19 +23,19 @@
             </thead>
             <tbody align="center">
 
-                {{#each grupoAlumnos}}
+                {{#each groupStudents}}
                 <tr>
                     <th scope="row"></th>
-                    <td>{{nombre}}</td>
-                    <td>{{apellido_paterno}}</td>
-                    <td>{{apellido_materno}}</td>
-                    <td>{{valor}}</td>
-                    <td>{{fecha_calificacion}}</td>
+                    <td>{{name}}</td>
+                    <td>{{fatherLastName}}</td>
+                    <td>{{motherLastName}}</td>
+                    <td>{{note_value}}</td>
+                    <td>{{dateOfNote}}</td>
                     <td>
-                        <button class="btn btn-primary addNote swal2-styled swal2-confirm" data-uuid="{{alumno_id}}"
-                            data-name="{{nombre}}" data-lastname="{{apellido_paterno}}"
-                            data-lastnamemattern="{{apellido_materno}}" data-uuidCalificacion="{{calificacion_id}}"
-                            data-uuidg="{{grupo_id}}">
+                        <button class="btn btn-primary addNote swal2-styled swal2-confirm" data-id="{{id}}"
+                            data-name="{{name}}" data-fatherlastname="{{fatherLastName}}"
+                            data-motherlastname="{{motherLastName}}" data-note_id="{{note_id}}"
+                            data-group_id="{{group_id}}">
                             Calificar
                         </button>
                     </td>
@@ -41,6 +43,7 @@
                 {{/each}}
             </tbody>
         </table>
+        </div>
     </div>
 </section>
-<script src="/js/setGroup.js"></script>
+<script type="module" src="/js/groups.js"></script>
