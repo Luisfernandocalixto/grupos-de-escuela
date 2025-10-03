@@ -1,4 +1,4 @@
-import { contentOfForm, isFragmentTr, isTable } from "/js/template/groups.js";
+import { contentOfForm, isFragmentTr, isTable } from "/js/template/groups.mjs";
 document.addEventListener('DOMContentLoaded', function () {
     const contentTable = document.querySelector('.contentTable');
 
