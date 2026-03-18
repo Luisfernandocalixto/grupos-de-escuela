@@ -3,7 +3,8 @@ require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const { engine } = require('express-handlebars');
-const path = require('path');
+const path = require('node:path');
+const { default: rateLimit } = require('express-rate-limit');
 //
 
 
@@ -38,6 +39,15 @@ app.use((req, res, next) => {
     res.setHeader('Expires', '0');
     next();
 });
+
+const limiter = rateLimit({
+    windowMs: 60 * 1000, // 1 minute
+    max: 150, // limit each too 150 request
+    message: 'Request limit exceeded',
+});
+
+app.use(limiter);
+
 
 //  routes
 app.use(require('../src/routes/links.js'));

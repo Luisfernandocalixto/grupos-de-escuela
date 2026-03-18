@@ -22,7 +22,7 @@ class LinkController {
             res.render('components/index', { groups: groups.rows, infoTeacher: infoTeacher.rows[0] });
         } catch (error) {
             
-            res.status(500).send("Error show page home!")
+            res.status(500).send("Error show page home!");
         }
     }
 
@@ -51,19 +51,19 @@ class LinkController {
                     format = isDate;
                 }
                 else {
-                    format = null
+                    format = null;
                 }
 
                 return {
                     ...item,
                     dateOfNote: format
                 }
-            })
+            });
 
             res.render('components/groups', { groupStudents,infoTeacher: infoTeacher.rows[0] });
         } catch (error) {
             
-            res.status(500).send("Error show view of group!")
+            res.status(500).send("Error show view of group!");
         }
     }
 
@@ -81,36 +81,44 @@ class LinkController {
                 args: [id]
             });
 
+            
             if (existsRegister.rows.length > 0) {
-
+                const currentDate = Date.now();
+                
                 await client.execute({
-                    sql: `UPDATE notes SET note_value = ?, dateOfNote = (datetime('now')) WHERE note_id = ?`,
-                    args: [note, existsRegister.rows[0].note_id]
+                    sql: `UPDATE notes SET note_value = ?, dateOfNote = ? WHERE note_id = ?`,
+                    args: [note, currentDate, existsRegister.rows[0].note_id]
                 });
+                
                 const queryStudent = await client.execute({
                     sql: queryStudentWithNote,
                     args: [id]
-                })
+                });
+                
                 const isStudent = queryStudent.rows.map(e => {
                     return {
                         ...e,
                         dateOfNote: showDate({ date: e.dateOfNote })
-
+                        
                     }
                 });
-
-
+                
+                
                 return res.status(200).json({ student: isStudent[0] });
             }
             else {
+                const currentDate = Date.now();
+
                 await client.execute({
-                    sql: `INSERT INTO notes (note_value, student_id, dateOfNote) VALUES (?,?,(datetime('now')))`,
-                    args: [insertNoteValue.note_value, insertNoteValue.student_id]
-                })
+                    sql: `INSERT INTO notes (note_value, student_id, dateOfNote) VALUES (?,?,?)`,
+                    args: [insertNoteValue.note_value, insertNoteValue.student_id, currentDate]
+                });
+
                 const queryStudent = await client.execute({
                     sql: queryStudentWithNote,
                     args: [id]
                 });
+
                 const isStudent = queryStudent.rows.map(e => {
                     return {
                     ...e,
@@ -124,7 +132,7 @@ class LinkController {
             }
 
         } catch (error) {
-            res.status(500).send("Error show data of group!")
+            res.status(500).send("Error show data of group!");
         }
     }
 

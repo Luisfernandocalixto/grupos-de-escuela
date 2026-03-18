@@ -46,6 +46,7 @@ const queryGroups = `SELECT
             ORDER BY
             g.group_id,
             g.name;`;
+            
 const queryGroup = `SELECT
   a.id AS id,
   a.name,

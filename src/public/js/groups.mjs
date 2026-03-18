@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 Swal.fire('Error', "<p class='text-white' >Hubo un problema al enviar los datos</p>", 'error');
                             }
 
-                            return response.json()
+                            return response.json();
                         })
                         .then((responseData) => {
                             const { student } = responseData;
@@ -77,11 +77,11 @@ document.addEventListener('DOMContentLoaded', function () {
                                     return s;
                                 });
 
-                                contentTable.innerHTML = isTable({ data: updateData })
+                                contentTable.innerHTML = isTable({ data: updateData });
 
 
                             }
-                        })
+                        });
                 } else if (result.isDenied) {
                     Swal.fire('Cancelado', '<p class="text-white" >No se guardaron los cambios</p>', 'info');
                 }
